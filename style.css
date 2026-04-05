@@ -1,0 +1,616 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CORES */
+:root {
+  --verde: #046d5a;
+  --verde-escuro: #023d33;
+  --preto: #121212;
+  --cinza: #f4f4f4;
+  --branco: #ffffff;
+}
+
+/* BODY ----------------------------------------------------------------------------*/
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cinza);
+  color: var(--preto);
+}
+
+/* HEADER (CORRIGIDO PARA SEU HTML) --------------------------------------------------*/
+h1 {
+  background: linear-gradient(90deg, var(--verde-escuro), var(--preto));
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* NAV ---------------------------------------------------------------------------*/
+nav {
+  background: var(--preto);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+}
+
+/* HOVER BONITO */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: var(--verde);
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* SECTIONS ----------------------------------------------------------------------------*/
+section {
+  max-width: 950px;
+  margin: 30px auto;
+  background: var(--branco);
+  padding: 25px;
+  border-radius: 12px;
+
+  border-left: 6px solid var(--verde);
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+section:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+/* TITULOS ------------------------------------------------------------------------------ */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--verde-escuro);
+}
+
+/* MISSÃO -------------------------------------------------------------------------------*/
+.missao {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.missao img {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  background: #eee;
+  border-radius: 20px;
+}
+
+/* TEXTO -------------------------------------------------------------------------------- */
+p {
+  line-height: 1.6;
+}
+
+/* CARROSSEL -----------------------------------------------------------------------------*/
+.carrossel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+/* SCROLL BONITO */
+.carrossel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carrossel::-webkit-scrollbar-thumb {
+  background: var(--verde);
+  border-radius: 10px;
+}
+
+/* IMAGENS --------------------------------------------------------------------------------- */
+.carrossel .img-card {
+  min-width: calc(100% / 3 - 10px);
+  height: 260px;
+  /* flex-shrink: 0; */
+}
+
+/* EFEITO VITRINE 🔥 */
+.carrossel img:hover {
+  transform: scale(1.05);
+}
+
+/* CARD COM TEXTO */
+.img-card {
+  position: relative;
+  min-width: 260px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+/* TEXTO EM CIMA */
+.img-card span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 10px;
+
+  color: white;
+  font-size: 14px;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+
+  z-index: 2; /* ESSENCIAL */
+}
+
+.img-card span {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.img-card:hover span {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* EVENTOS ------------------------------------------------------------------------------------------------------ */
+.evento {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: radial-gradient(circle, #111 40%, #023d33 100%);
+}
+
+/* IMAGEM */
+.evento-carrossel img {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 100%;
+
+  object-fit: contain;
+
+  background: #111;
+
+  display: block;
+  margin: auto; /* centraliza melhor */
+}
+
+/* TEXTO EM CIMA */
+.evento div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* padding: 15px; */
+
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+}
+
+/* CONTAINER */
+.evento-carrossel-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden; /* AQUI é o lugar correto */
+}
+
+/* CARROSSEL */
+.evento-carrossel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+/* IMAGENS */
+.evento-carrossel img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #023d33, #121212);
+}
+
+/* TEXTO SOBRE */
+.evento-texto {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+
+  color: white;
+}
+
+/* BOTÕES AJUSTADOS */
+.evento .seta {
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* CONTAINER PRINCIPAL */
+.eventos-container {
+  display: flex;
+  gap: 25px;
+}
+
+/* LADO ESQUERDO */
+.evento-principal {
+  flex: 2;
+}
+
+/* LADO DIREITO */
+.eventos-lateral {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.evento .esquerda { left: 10px; }
+.evento .direita { right: 10px; }
+
+/* CAIXAS LATERAIS ------------------------------------------------------------------------------- */
+.evento-box {
+  background: #f9f9f9;
+  padding: 15px;
+  border-left: 4px solid var(--verde);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.evento-box h3 {
+  margin-bottom: 10px;
+  color: var(--verde-escuro);
+}
+
+.evento-box img {
+  min-width: 180px;
+  height: 180px;
+}
+
+.evento-principal {
+  flex: 2;
+  min-width: 0; /* MUITO IMPORTANTE */
+}
+
+.eventos-lateral {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  max-width: 300px; /* limita largura */
+}
+
+/* .carrossel-lateral {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+} */
+
+.carrossel-lateral img {
+  min-width: 100%; /* 1 imagem por vez */
+  height: 180px;
+  object-fit: cover;
+
+  border-radius: 8px;
+  scroll-snap-align: center;
+}
+
+/* REMOVE SCROLL VISUAL */
+.carrossel::-webkit-scrollbar,
+.carrossel-lateral::-webkit-scrollbar {
+  display: none;
+}
+
+.carrossel,
+.carrossel-lateral {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carrossel-lateral-container {
+  position: relative;
+}
+
+.carrossel-lateral {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.carrossel-lateral img {
+  min-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  scroll-snap-align: center;
+}
+
+/* BOTÕES */
+.carrossel-lateral-container .seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.esquerda { left: 5px; }
+.direita { right: 5px; }
+
+
+
+
+
+
+
+
+
+
+
+
+/* CONTATO --------------------------------------------------------------------------------------------- */
+#contato {
+  text-align: center;
+  padding: 15px;
+}
+
+#contato a {
+  color: black;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#contato a:hover {
+  color: var(--verde);
+}
+
+/* RESPONSIVO ------------------------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+
+  /* HEADER */
+  nav {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  /* MISSÃO */
+  .missao {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .missao img {
+    order: -1;
+    max-width: 200px;
+  }
+
+  /* EVENTOS  */
+  .eventos-container {
+    flex-direction: column;
+  }
+
+  .eventos-lateral {
+    flex-direction: column;
+  }
+
+  .evento {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .evento img {
+    order: -1;
+    max-width: 200px;
+  }
+
+  /* CARROSSEL */
+.carrossel img {
+  min-width: calc(100% / 3 - 10px);
+}
+
+.carrossel-lateral img {
+  height: 200px;
+}
+
+}
+
+/* CELULARES MENORES */
+@media (max-width: 500px) {
+
+  h1 {
+    font-size: 18px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  section {
+    margin: 15px;
+    padding: 15px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .carrossel .img-card {
+    min-width: 100%; /* 1 imagem por vez */
+  }
+
+.missao {
+    flex-direction: column;
+  }
+
+  .missao img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .missao p {
+    text-align: center;
+  }
+
+}
+
+/* TABLETS E IPADS */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+  /* SEÇÕES */
+  section {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  /* MISSÃO */
+  .missao {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .missao img {
+    width: auto;
+    height: auto;
+  }
+
+  .missao p {
+    width: 50%;
+  }
+
+  /* CARROSSEL DE FOTOS */
+  .carrossel .img-card {
+    min-width: calc(100% / 2 - 10px); /* 2 imagens */
+  }
+
+  /* EVENTOS */
+  .eventos-container {
+    flex-direction: column;
+  }
+
+  .evento-principal {
+    width: 100%;
+  }
+
+  .eventos-lateral {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .evento-box {
+    flex: 1;
+  }
+
+  /* CARROSSEL LATERAL */
+  .carrossel-lateral img {
+    height: 200px;
+  }
+
+}
+
+/* Animações-------------------------------------------------------------------------------- */
+.animar {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.animar.ativo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carrossel-container {
+  position: relative;
+}
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--verde-escuro);
+  color: white;
+  border: none;
+  font-size: 22px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.esquerda { left: -10px; }
+.direita { right: -10px; }
+
+.seta:hover {
+  background: var(--verde);
+}

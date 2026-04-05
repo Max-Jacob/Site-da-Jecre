@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JECRE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>JECRE</h1>
+  <nav>
+    <a href="#missao">Missão</a>
+    <a href="#fotos">Fotos</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<!-- Secão missão ----------------------------------------------------------------------------------------------------------- -->
+<section id="missao" class="animar"> 
+  <h2>Nossa Missão</h2>
+  <div class="missao">
+    <img src="src/Logo jecre.jpeg">
+    <p> Nosso grupo de jovens existe para ser um lugar de acolhimento, onde cada pessoa pode se sentir à vontade, criar amizades verdadeiras e crescer na fé. Queremos caminhar juntos, aprendendo mais sobre Deus e colocando isso em prática no nosso dia a dia.
+        Nosso propósito é incentivar uns aos outros a viver com valores, fazer boas escolhas e ser exemplo dentro e fora da igreja. Também acreditamos que cada jovem tem um propósito único, e queremos ajudar cada um a descobrir e desenvolver seus dons.
+        Acima de tudo, buscamos viver algo real com Deus, crescer juntos e fazer a diferença por onde passarmos.</p>
+  </div>
+</section>
+
+<!-- Secão fotos ----------------------------------------------------------------------------------------------------------- -->
+<section id="fotos" class="animar">
+  <h2>Fotos</h2>
+  <div class="carrossel-container">
+
+    <button class="seta esquerda">&#10094;</button>
+
+  <div class="carrossel" id="carrossel">
+
+    <div class="img-card">
+      <img src="src/1 preju 2026.jpeg">
+      <span>1º encontro da Pré-Ju 2026</span>
+    </div>
+
+    <div class="img-card">
+      <img src="src/participacao jecre congresso 2026.jpeg">
+      <span>Participação da JECRE no Congresso de Jovens 2026</span>
+    </div>
+
+    <div class="img-card">
+      <img src="src/Jesus jecre.jpeg">
+      <span>Estampa da Camisa da JECRE 2026</span>
+    </div>
+
+    <div class="img-card">
+      <img src="src/Logo jecre.jpeg">
+      <span>Nova Logo da JECRE 2026</span>
+    </div>
+
+    <!-- <div class="img-card">
+      <img src="src/Jesus jecre.jpeg">
+      <span>Momento de louvor</span>
+    </div> -->
+
+  </div>
+
+    <button class="seta direita">&#10095;</button>
+
+</div>
+</section>
+
+<!-- Secão eventos ----------------------------------------------------------------------------------------------------------- -->
+<section id="eventos" class="animar">
+  <h2>Eventos</h2>
+
+  <div class="eventos-container">
+
+    <!-- LADO ESQUERDO -->
+    <div class="evento-principal">
+      <div class="evento">
+
+  <div class="evento-carrossel-container">
+    <button class="seta esquerda">&#10094;</button>
+      <div class="evento-carrossel" id="carrosselPrincipal">
+        <img src="src/agenda jecre abril 2026.jpeg">
+
+        <img src="src/4 noite hamburguer jecre.jpeg">
+
+      </div>
+    <button class="seta direita">&#10095;</button>
+
+  </div>
+        <!-- TEXTO EM CIMA -->
+        <div class="evento-texto">
+           <p><strong>Próximos Eventos</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LADO DIREITO -->
+    <div class="eventos-lateral">
+      <!-- EVENTOS ANTERIORES -->
+     <div class="evento-box">
+  <h3>Eventos Anteriores</h3>
+  <div class="carrossel-lateral-container">
+    <button class="seta esquerda">&#10094;</button>
+      <div class="carrossel-lateral" id="carrosselEventos">
+        <img src="src/meme pastor Gilson Jecre 2026.jpeg">        
+        <img src="src/participacao jecre congresso 2026.jpeg">
+        <img src="src/Logo jecre.jpeg">
+
+      </div>
+    <button class="seta direita">&#10095;</button>
+
+  </div>
+
+</div>
+
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Secão contato ----------------------------------------------------------------------------------------------------------- -->
+<section id="contato" class="animar">
+  <h2>Contato</h2>
+  <p>Instagram: <a href="https://www.instagram.com/jecre_?igsh=cGlvM29yeGcxdDZo">@jecre_</a></p>
+  <p>Email: <a href="jecrepcr@gmail.com">jecrepcr@gmail.com</a></p>
+</section>
+
+<!-- script ----------------------------------------------------------------------------------------------------------- -->
+<script>
+const elementos = document.querySelectorAll('.animar');
+
+window.addEventListener('scroll', () => {
+  elementos.forEach(el => {
+    const topo = el.getBoundingClientRect().top;
+    const alturaTela = window.innerHeight;
+
+    if (topo < alturaTela - 100) {
+      el.classList.add('ativo');
+    }
+  });
+});
+
+const btnDireitaFotos = document.querySelector('#fotos .direita');
+const btnEsquerdaFotos = document.querySelector('#fotos .esquerda');
+
+btnDireitaFotos.onclick = () => {
+  carrossel.scrollBy({ left: 220, behavior: 'smooth' });
+};
+
+btnEsquerdaFotos.onclick = () => {
+  carrossel.scrollBy({ left: -220, behavior: 'smooth' });
+};
+
+const carrosselEventos = document.getElementById('carrosselEventos');
+
+document.querySelector('.carrossel-lateral-container .direita').onclick = () => {
+  carrosselEventos.scrollBy({ left: carrosselEventos.offsetWidth, behavior: 'smooth' });
+};
+
+document.querySelector('.carrossel-lateral-container .esquerda').onclick = () => {
+  carrosselEventos.scrollBy({ left: -carrosselEventos.offsetWidth, behavior: 'smooth' });
+};
+
+const carrosselPrincipal = document.getElementById('carrosselPrincipal');
+
+const btnDireitaPrincipal = document.querySelector('.evento-carrossel-container .direita');
+const btnEsquerdaPrincipal = document.querySelector('.evento-carrossel-container .esquerda');
+
+let indexPrincipal = 0;
+
+btnDireitaPrincipal.onclick = () => {
+  const total = carrosselPrincipal.children.length;
+
+  if (indexPrincipal < total - 1) {
+    indexPrincipal++;
+  }
+
+  atualizarPrincipal();
+};
+
+btnEsquerdaPrincipal.onclick = () => {
+  if (indexPrincipal > 0) {
+    indexPrincipal--;
+  }
+
+  atualizarPrincipal();
+};
+
+function atualizarPrincipal() {
+  carrosselPrincipal.style.transform = `translateX(-${indexPrincipal * 100}%)`;
+}
+
+
+
+</script>
+</body>
+</html>
+<!-- Teste 1 2 3 4 5 6 7 8 9 -->
